@@ -1,3 +1,10 @@
 <p (click)="changeColor('blue')" [style.color]="myColor">
     Hello, {{ user.name }}!
 </p>
+
+<input type="text" 
+    (input)="changeColor($any($event.target).value)"
+>
+<input type="text" 
+    (keydown.control.enter)="changeColor($any($event.target).value)"
+>

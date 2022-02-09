@@ -9,21 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public count = 1;
-  public myClass = '';
+  public myClass = 'green';
   public user = {
     name: 'John'
   };
   public myColor: string | number = 'red';
 
   constructor() {
-    setTimeout( () => {
-      this.myClass = 'green'
-
-      setTimeout( () => {
-        this.myClass = 'red'
-      }, 2000); // отработает вторым
-
-    }, 2000); // отработает первым
     
   }
 

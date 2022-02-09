@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   public myColor: string | number = 'red';
 
   constructor() {
-    
   }
 
   changeColor(color: string | number) {

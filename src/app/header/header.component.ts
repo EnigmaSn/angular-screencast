@@ -5,18 +5,30 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.less']
 })
+
 export class HeaderComponent implements OnInit {
 
   public count = 1;
-  public myClass = 'red';
+  public myClass = '';
   public user = {
     name: 'John'
   };
-  
+  public myColor: string | number = 'red';
+
   constructor() {
     setTimeout( () => {
       this.myClass = 'green'
-    }, 2000);
+
+      setTimeout( () => {
+        this.myClass = 'red'
+      }, 2000); // отработает вторым
+
+    }, 2000); // отработает первым
+    
+  }
+
+  changeColor(color: string | number) {
+    this.myColor = color;
   }
 
   random() {

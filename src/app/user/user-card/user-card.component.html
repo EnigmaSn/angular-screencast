@@ -1,3 +1,13 @@
 <p>
     Ну что, {{ user?.name }}, поработаем?
 </p>
+
+<button (click)="changeVisability()">Toggle</button>
+<p *ngIf="isVisible"> Тест ngIf</p>
+
+<h2>Друзья:</h2>
+<ul>
+    <li *ngFor="let friend of friends">
+        {{ friend.name }}
+    </li>
+</ul>

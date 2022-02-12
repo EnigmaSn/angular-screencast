@@ -10,17 +10,19 @@ export class HeaderComponent implements OnInit {
 
   public count = 1;
   public myClass = 'green';
+  public selectedUser: any; 
   public user = {
     name: 'John'
   };
-  public myColor: string | number = 'red';
-
+  public users = [
+    {name: 'Albus'},
+    {name: 'Severus'},
+    {name: 'Potter'},
+  ]
+ 
   constructor() {
   }
 
-  changeColor(color: string | number) {
-    this.myColor = color;
-  }
 
   random() {
     return Math.random();

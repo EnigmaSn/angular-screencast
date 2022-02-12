@@ -1,9 +1,11 @@
-<p (click)="changeColor('blue')" [style.color]="myColor">
+<p>
     Hello, {{ user?.name }}!
 </p>
 
-<input type="text" #inputColor>
+<ul>
+    <li *ngFor="let user of users">
+        <app-user-card [user]="user" (userSelected)="selectedUser = user"></app-user-card>
+    </li>
+</ul>
 
-<button (click)="changeColor($any(inputColor).value)">Change color</button>
-
-<app-user-card [user]="user"></app-user-card>
+ <b>Выбран пользователь {{selectedUser?.name}}</b>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-card',
@@ -7,20 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserCardComponent implements OnInit {
   @Input() user: any;
+  @Output() userSelected: EventEmitter<any> = new EventEmitter;
 
   public isVisible: boolean = true;
-  public friends = [
-    {name: 'Albus'},
-    {name: 'Severus'},
-    {name: 'Potter'},
-  ];
 
   constructor() {
     console.log(`Constructor: ${this.user}`); // undefited
   }
 
-  changeVisability() {
-    this.isVisible = !this.isVisible;
+  selectUser() {
+    this.userSelected.emit(this.user);
   }
 
   ngOnInit(): void {

@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserCardComponent } from './user/user-card/user-card.component';
 import { ItemComponent } from './item/item.component';
+import { ColoryDirective } from './colory.directive';
+import { MenuComponent } from './header/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ItemComponent } from './item/item.component';
     FooterComponent,
     UserCardComponent,
     ItemComponent,
+    ColoryDirective,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myapp';
+  user: string = '';
 
   onInput(element: HTMLInputElement) {
-    this.title = element.value;
+    this.user = element.value;
   }
 }

@@ -10,10 +10,14 @@ import { UserCardComponent } from './user/user-card/user-card.component';
 import { ItemComponent } from './item/item.component';
 import { ColoryDirective } from './colory.directive';
 import { MenuComponent } from './header/menu/menu.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,  
     UserComponent,
     HeaderComponent,
     FooterComponent,
@@ -24,7 +28,11 @@ import { MenuComponent } from './header/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

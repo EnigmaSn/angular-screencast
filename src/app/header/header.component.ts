@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   user: string = '';
 
   @Output()
-  exit: EventEmitter<string> = new EventEmitter<string>();
+  userChange: EventEmitter<string> = new EventEmitter<string>();
  
   constructor() {
   }
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onExit() {
-    this.exit.emit('');
+    this.userChange.emit('');
   }
 
 }

@@ -293,7 +293,7 @@
   }
 </style>
 
-<app-header [user]="user" (exit)="onExit($event)"></app-header>  
+<app-header [(user)]="user"></app-header>  
 
 <h1>User: {{user}}</h1>
 <p>Введите имя юзера <input #userInput type="text" (input)="onInput(userInput)"></p> 

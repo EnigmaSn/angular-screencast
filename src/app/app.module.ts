@@ -15,6 +15,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { MatInputModule } from '@angular/material/input';
     ItemComponent,
     ColoryDirective,
     MenuComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,9 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

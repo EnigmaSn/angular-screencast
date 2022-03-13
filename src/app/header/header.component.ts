@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-  @Input('user') user: string = '';
+  @Input() 
+  user: string = '';
+
+  @Output()
+  exit: EventEmitter<string> = new EventEmitter<string>();
  
   constructor() {
   }
@@ -16,5 +20,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onExit() {
+    this.exit.emit('');
+  }
 
 }

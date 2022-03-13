@@ -12,4 +12,8 @@ export class AppComponent {
   onInput(element: HTMLInputElement) {
     this.user = element.value;
   }
+
+  onExit(str: string) {
+    this.user = str;
+  }
 }

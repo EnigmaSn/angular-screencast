@@ -6,7 +6,9 @@
     <button (click)="showFiller = !showFiller" mat-raised-button>
       Toggle extra text
     </button>
-    <ng-content select=".list"></ng-content>  </mat-drawer>
+    <ng-content select=".list"></ng-content>  
+    <ng-content select="name"></ng-content>  
+  </mat-drawer>
 
   <div class="example-sidenav-content">
     

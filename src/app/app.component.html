@@ -293,7 +293,10 @@
   }
 </style>
 
-<app-header [(user)]="user"></app-header>  
+<app-header></app-header>  
 
 <h1>User: {{user}}</h1>
-<p>Введите имя юзера <input #userInput type="text" (input)="onInput(userInput)"></p> 
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Search</mat-label>
+  <input matInput placeholder="Enter rearch request" (input)="onInput($event)">
+</mat-form-field>

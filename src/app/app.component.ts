@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'myapp';
   user: string = '';
 
-  onInput(element: HTMLInputElement) {
-    this.user = element.value;
+  onInput(element: Event) {
+    this.user = (element.target as HTMLInputElement).value;
   }
 }

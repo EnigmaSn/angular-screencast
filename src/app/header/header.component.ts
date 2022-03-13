@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,25 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-
-  public count = 1;
-  public myClass = 'green';
-  public selectedUser: any; 
-  public user = {
-    name: 'John'
-  };
-  public users = [
-    {name: 'Albus'},
-    {name: 'Severus'},
-    {name: 'Potter'},
-  ]
+  @Input('user') user: string = '';
  
   constructor() {
-  }
-
-
-  random() {
-    return Math.random();
   }
 
   ngOnInit(): void {

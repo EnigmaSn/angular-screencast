@@ -296,12 +296,13 @@
 <app-header></app-header>  
 <app-navbar navTitle="Nav list">
   <div ngProjectAs="name">Name</div>
-
-  <mat-list class="list" role="list">
-    <mat-list-item role="listitem">Item 1</mat-list-item>
-    <mat-list-item role="listitem">Item 2</mat-list-item>
-    <mat-list-item role="listitem">Item 3</mat-list-item>
-  </mat-list>
+  <ng-template #matListTemplate let-name="myName" let-getName="getName" let-tmpl>
+    <mat-list class="list" role="list">
+      <mat-list-item role="listitem">{{name}}</mat-list-item>
+      <mat-list-item role="listitem" (click)="getName()">{{name}}</mat-list-item>
+      <mat-list-item role="listitem">{{tmpl.age}}</mat-list-item>
+    </mat-list>
+  </ng-template >
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Search</mat-label>

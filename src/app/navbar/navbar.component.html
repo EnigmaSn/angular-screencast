@@ -1,14 +1,7 @@
 <mat-drawer-container class="example-container" autosize>
 
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>{{ navTitle }}</p>
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
-    <ng-content select=".list"></ng-content>  
-    <ng-content select="name"></ng-content>  
+    <div #matListViewPort></div>
   </mat-drawer>
 
   <div class="example-sidenav-content">

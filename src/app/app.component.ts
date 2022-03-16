@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, ApplicationRef, Component, NgZone, OnInit, ViewChild } from '@angular/core';
 // import { MatDrawer } from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewChecked, OnInit {
   @ViewChild( NavbarComponent, { static: true })
   navbarComponent!: NavbarComponent;
 
-  constructor( private ngZone: NgZone ) {}
+  constructor(private applicationRef: ApplicationRef) {}
 
   onMenuToggle() {
     this.navbarComponent.drawer.toggle();
@@ -25,7 +25,9 @@ export class AppComponent implements AfterViewChecked, OnInit {
   }
 
   ngOnInit(): void {
-      this.ngZone.run();
+    setInterval( () => {
+      this.applicationRef.tick(); // запускает обнаружение изменений
+    }, 500 );
   }
   ngAfterViewChecked(): void {
       console.log('ngAfterViewChecked');

@@ -293,8 +293,8 @@
   }
 </style>
 
-<app-header [matDrawer]="matDrawer"></app-header>  
-<app-navbar navTitle="Nav list" (drawerEmit)="onDrawerSet($event)">
+<app-header (clickMenu)="onMenuToggle()"></app-header>  
+<app-navbar navTitle="Nav list">
   <div ngProjectAs="name">Name</div>
   <ng-template #matListTemplate let-name="myName" let-getName="getName" let-tmpl>
     <mat-list class="list" role="list">

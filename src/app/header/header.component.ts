@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,6 +11,9 @@ export class HeaderComponent implements OnInit {
 
   @Input()
   matDrawer!: MatDrawer;
+
+  @Output()
+  clickMenu = new EventEmitter<void>();
  
   constructor() {
   }

@@ -10,7 +10,7 @@ export class NavbarComponent
   implements OnInit
 { 
   @Output()
-  drawerEmit = new EventEmitter<MatDrawer>(true); // true - значние isAsync? по умолчанию false
+  drawerEmit = new EventEmitter<MatDrawer>(true); // true - значние isAsync, по умолчанию false
 
   @ViewChild( 'matListViewPort', { static: true, read: ViewContainerRef } )
   matListViewPort!: ViewContainerRef;

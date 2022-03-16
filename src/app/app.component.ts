@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,16 @@ import { MatDrawer } from '@angular/material/sidenav';
 export class AppComponent {
   title = 'myapp';
   user: string = '';
-  matDrawer!: MatDrawer;
+
+  @ViewChild( NavbarComponent, { static: true })
+  navbarComponent!: NavbarComponent;
+
+  onMenuToggle() {
+    this.navbarComponent.drawer.toggle();
+  }
 
   onInput(element: Event) {
     this.user = (element.target as HTMLInputElement).value;
   }
 
-  onDrawerSet(matDrawer: MatDrawer) {
-    this.matDrawer = matDrawer;
-  }
 }

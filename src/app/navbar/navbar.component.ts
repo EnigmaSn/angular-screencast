@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges, SimpleChange, ViewChild, AfterViewInit, ElementRef, ViewChildren, QueryList, ViewContainerRef, ContentChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChanges, SimpleChange, ViewChild, AfterViewInit, ElementRef, ViewChildren, QueryList, ViewContainerRef, ContentChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
@@ -9,8 +9,14 @@ import { MatDrawer } from '@angular/material/sidenav';
 export class NavbarComponent 
   implements OnInit
 { 
+  @Output()
+  drawerEmit = new EventEmitter<MatDrawer>(true); // true - значние isAsync? по умолчанию false
+
   @ViewChild( 'matListViewPort', { static: true, read: ViewContainerRef } )
   matListViewPort!: ViewContainerRef;
+
+  @ViewChild ( 'drawer', { static: true, read: MatDrawer } )
+  drawer!: MatDrawer ;
 
   @ContentChild( 'matListTemplate', { static: true, read: TemplateRef } )
   matListTemplate!: TemplateRef<unknown>;
@@ -20,6 +26,9 @@ export class NavbarComponent
   constructor() { }
 
   ngOnInit(): void {
+
+    this.drawerEmit.emit(this.drawer);
+
     this.matListViewPort.createEmbeddedView(
       this.matListTemplate,
       { // context
@@ -30,5 +39,6 @@ export class NavbarComponent
         getName: () => { console.log('Тронула меня, тронула!') }
       } 
     );
+
   }
 }

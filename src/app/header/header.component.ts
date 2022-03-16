@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 
 @Component({
@@ -8,6 +9,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
+
+  @Input()
+  matDrawer!: MatDrawer;
  
   constructor() {
   }

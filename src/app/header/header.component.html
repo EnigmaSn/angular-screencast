@@ -9,7 +9,8 @@
     <!-- <span>{{ user | json }}</span> -->
     <!-- <span>{{ user.sum | currency : user.format : 'symbol-narrow' : '1.0-0' }}</span> -->
     <span>
-      {{ user$ | async | myJSON }}
+      <!-- {{ user$ | async | myJSON }} -->
+      {{ (user$ | async)?.name  }}
     </span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">

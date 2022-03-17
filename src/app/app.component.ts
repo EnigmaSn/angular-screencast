@@ -16,7 +16,7 @@ export class AppComponent {
 
 
   onMenuToggle() {
-    this.navbarComponent.drawer.toggle();
+    this.navbarComponent.toggleNavbar();
   }
 
   onInput(element: Event) {

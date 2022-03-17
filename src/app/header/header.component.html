@@ -6,10 +6,9 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>App</span>
-    <div *ngIf="( user$ | async ) as user">
+    <div *ngIf="( user$ | async ) as user; else spinner">
       {{ (user.sum | currency : user.format : 'symbol-narrow' : '1.0-0' ) }}
     </div>
-  
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
@@ -19,3 +18,6 @@
     </button>
   </mat-toolbar>
 
+<ng-template #spinner>
+  <mat-spinner color="accent" diameter="20"></mat-spinner>
+</ng-template>

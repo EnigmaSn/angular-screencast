@@ -19,6 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MyJSONPipe } from './my-json.pipe';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { MyJSONPipe } from './my-json.pipe';
     MatButtonModule,
     MatInputModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

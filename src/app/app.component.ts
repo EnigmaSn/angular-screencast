@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 // import { MatDrawer } from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -7,7 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'myapp';
   user: string = '';
 
@@ -21,9 +21,5 @@ export class AppComponent implements OnInit {
 
   onInput(element: Event) {
     this.user = (element.target as HTMLInputElement).value;
-  }
-
-  ngOnInit(): void {
-
   }
 }

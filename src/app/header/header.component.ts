@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { map, Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,31 @@ import { MatDrawer } from '@angular/material/sidenav';
 
 export class HeaderComponent implements OnInit {
 
-  @Input()
-  matDrawer!: MatDrawer;
-
   @Output()
   clickMenu = new EventEmitter<void>();
+
+  user$!: Observable<any>;
+
+  // user = {
+  //   name: 'Misha',
+  //   role: 'guest',
+  //   sum: 10000,
+  //   format: 'RUB'
+  // }
  
-  constructor() {
+  ngOnInit(): void {
+    this.user$ = this.getUser$();
   }
 
-  ngOnInit(): void {
+  private getUser$(): Observable<any> {
+    return timer(2000).pipe(
+      map( () => ({
+        name: 'Misha',
+        role: 'guest',
+        sum: 10000,
+        format: 'RUB'
+      })),
+    );
   }
 
 }

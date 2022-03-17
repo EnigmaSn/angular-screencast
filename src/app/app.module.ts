@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MyJSONPipe } from './my-json.pipe';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatListModule } from '@angular/material/list';
     ColoryDirective,
     MenuComponent,
     NavbarComponent,
+    MyJSONPipe,
   ],
   imports: [
     BrowserModule,

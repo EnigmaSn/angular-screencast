@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges, SimpleChange, ViewChild, AfterViewInit, ElementRef, ViewChildren, QueryList, ViewContainerRef, ContentChild, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ContentChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({

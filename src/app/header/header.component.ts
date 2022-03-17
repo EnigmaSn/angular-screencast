@@ -21,7 +21,13 @@ export class HeaderComponent implements OnInit {
   clickMenu = new EventEmitter<void>();
 
   user$!: Observable<IUser>;
- 
+  user = {
+    name: 'Misha',
+    role: 'guest',
+    sum: 10000,
+    format: 'RUB'
+  }
+
   ngOnInit(): void {
     this.user$ = this.getUser$();
   }

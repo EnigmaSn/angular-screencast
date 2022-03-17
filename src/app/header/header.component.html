@@ -7,13 +7,15 @@
     </button>
     <span>App</span>
 
-    <div *ngIf="user as user; else spinner">
+    <div *appInsert="user; first sum last spinner";></div>
+
+    <!-- <div *ngIf="user as user; else spinner">
       {{ (user.sum | currency : user.format : 'symbol-narrow' : '1.0-0' ) }}
     </div>
 
     <div *ngIf="( user$ | async ) as user; else spinner">
       {{ (user.sum | currency : user.format : 'symbol-narrow' : '1.0-0' ) }}
-    </div>
+    </div> -->
 
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
@@ -26,4 +28,8 @@
 
 <ng-template #spinner>
   <mat-spinner color="accent" diameter="20"></mat-spinner>
+</ng-template>
+
+<ng-template #sum>
+  {{ (user.sum | currency : user.format : 'symbol-narrow' : '1.0-0' ) }}
 </ng-template>

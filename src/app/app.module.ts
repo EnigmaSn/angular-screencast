@@ -20,6 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MyJSONPipe } from './my-json.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InsertDirective } from './directives/insert.directive';
 
 
 
@@ -35,6 +36,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MenuComponent,
     NavbarComponent,
     MyJSONPipe,
+    InsertDirective,
   ],
   imports: [
     BrowserModule,

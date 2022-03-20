@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { MyJSONPipe } from './my-json.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InsertDirective } from './directives/insert.directive';
+import { CarouselDirective } from './directives/carousel.directive';
 
 
 
@@ -37,6 +38,7 @@ import { InsertDirective } from './directives/insert.directive';
     NavbarComponent,
     MyJSONPipe,
     InsertDirective,
+    CarouselDirective,
   ],
   imports: [
     BrowserModule,

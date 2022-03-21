@@ -12,7 +12,7 @@
     <span class="example-spacer"></span>
 
     <!-- let-sum берется из implicit  -->
-    <ng-template 
+    <!-- <ng-template 
       appCarousel
       [appCarouselOf]="user.shopSum"
       let-back="back"
@@ -26,12 +26,16 @@
         </p>
         <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
       </div>
-    </ng-template>
+    </ng-template> -->
 
     <!-- запись let back=back идентична записи back as back -->
-    <!-- <div 
+    <ng-container *ngIf="(user$ | async) as user">
+      <p>
+        {{ user?.name }}
+      </p>
+      <div 
       class="shop-container" 
-      *appCarousel="let sum of user.shopSum; 
+      *appCarousel="let sum of (user$ | async)?.shopSum; 
       back as back; 
       next as next;
       autoplay: false"
@@ -41,7 +45,9 @@
         {{ sum.value | currency : sum.format : 'symbol-narrow' : '1.0-0' }}
       </p>
       <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
-    </div> -->
+    </div>
+    </ng-container>
+    
 
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>

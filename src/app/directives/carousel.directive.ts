@@ -1,5 +1,5 @@
 import { Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { BehaviorSubject, filter, map, Subject, takeUntil, withLatestFrom } from 'rxjs';
+import { BehaviorSubject, filter, interval, map, Subject, takeUntil, withLatestFrom } from 'rxjs';
 
 interface ICarouselContext<T> {
   $implicit: T,
@@ -23,6 +23,8 @@ export class CarouselDirective<T> implements OnInit, OnDestroy {
     this.currentIndex$.next(0);
   };
 
+  @Input() appCarouselAutoplay: boolean = false;
+
   private items$ = new BehaviorSubject<T[] | null>(null);
   private currentIndex$ = new BehaviorSubject<number>(0);
   private destroy$ = new Subject<void>();
@@ -33,6 +35,12 @@ export class CarouselDirective<T> implements OnInit, OnDestroy {
   ) { }
   
   ngOnInit() {
+    interval(1000).pipe(
+      filter(() => this.appCarouselAutoplay),
+      takeUntil(this.destroy$)
+    ).subscribe( () => {
+      this.next();
+    })
     this.listenIndexChange();
   }
 

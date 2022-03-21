@@ -4,6 +4,8 @@ import { BehaviorSubject, filter, map, Subject, takeUntil, withLatestFrom } from
 interface ICarouselContext<T> {
   $implicit: T,
   index: number,
+  next: () => void,
+  back: () => void
 }
 
 @Directive({
@@ -56,6 +58,37 @@ export class CarouselDirective<T> implements OnInit, OnDestroy {
     return {
       index,
       $implicit: items[index] as T,
+      next: () => {
+        this.next();
+      },
+      back: () => {
+        this.back();
+      },
     }
+  }
+
+  private next() {
+    const nextIndex = this.currentIndex$.value + 1;
+    const itemsLen = (this.items$.value as T[]).length;
+
+    if (nextIndex < itemsLen) {
+      this.currentIndex$.next(nextIndex);
+
+      return;
+    }
+
+    this.currentIndex$.next(0);
+  }
+  private back() {
+    const prevIndex = this.currentIndex$.value - 1;
+    const itemsLen = (this.items$.value as T[]).length;
+
+    if (prevIndex >= 0) {
+      this.currentIndex$.next(prevIndex);
+
+      return;
+    }
+
+    this.currentIndex$.next(itemsLen -1)
   }
 }

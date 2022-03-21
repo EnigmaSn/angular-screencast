@@ -11,10 +11,18 @@
 
     <span class="example-spacer"></span>
 
-    <div class="shop-container">
-      <p *appCarousel="let sum of user.shopSum">
+    <!-- запись let back=back идентична записи back as back -->
+    <div 
+      class="shop-container" 
+      *appCarousel="let sum of user.shopSum; 
+      back as back; 
+      next as next;"
+    >
+      <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
+      <p >
         {{ sum.value | currency : sum.format : 'symbol-narrow' : '1.0-0' }}
       </p>
+      <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
     </div>
 
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
